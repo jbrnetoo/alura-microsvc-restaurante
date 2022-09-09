@@ -12,7 +12,6 @@ namespace ItemService.Profiles
             CreateMap<Restaurante, RestauranteReadDto>();
             CreateMap<ItemCreateDto, Item>();
             CreateMap<Item, ItemCreateDto>();
-            CreateMap<Item, ItemReadDto>();
         }
     }
 }
