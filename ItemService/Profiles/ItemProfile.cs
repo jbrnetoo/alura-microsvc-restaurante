@@ -8,8 +8,9 @@ namespace ItemService.Profiles
     {
         public ItemProfile()
         {
-            CreateMap<RestauranteReadDto, Restaurante>().ForMember(dest => dest.IdExterno, opt => opt.MapFrom(src => src.Id));
-            CreateMap<Restaurante, RestauranteReadDto>();
+            CreateMap<RestauranteReadDto, Restaurante>()
+            .ForMember(dest => dest.IdExterno, opt => opt.MapFrom(src => src.Id))
+            .ReverseMap();
             CreateMap<ItemCreateDto, Item>();
             CreateMap<Item, ItemCreateDto>();
         }

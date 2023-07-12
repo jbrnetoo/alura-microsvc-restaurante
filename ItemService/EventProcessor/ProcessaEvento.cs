@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Text.Json;
+using AutoMapper;
 using ItemService.Data;
 using ItemService.Dtos;
 using ItemService.Models;
-using System.Text.Json;
 
 namespace ItemService.EventProcessor
 {
@@ -19,7 +19,6 @@ namespace ItemService.EventProcessor
 
         public void Processa(string mensagem)
         {
-
             using var scope = _scopeFactory.CreateScope();
 
             var itemRepository = scope.ServiceProvider.GetRequiredService<IItemRepository>();
