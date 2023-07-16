@@ -11,12 +11,12 @@ spec:
       app: item-api
   template:
     metadata:
-      labels: 
+      labels:
         app: item-api
     spec:
       containers:
         - name: item-api
-          image: 962752222089.dkr.ecr.us-east-1.amazonaws.com/itemservice:1.3
+          image: 550043459677.dkr.ecr.us-east-1.amazonaws.com/itemservice:1.3
           ports:
             - containerPort: 80
           env:

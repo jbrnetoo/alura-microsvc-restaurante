@@ -1,9 +1,33 @@
-﻿using RestauranteService.Dtos;
+﻿using System.Text;
+using System.Text.Json;
+using RestauranteService.Dtos;
 
-namespace RestauranteService.ItemServiceHttpClient
+namespace RestauranteService.ItemServiceHttpClient;
+
+public interface IItemServiceHttpClient
 {
-    public interface IItemServiceHttpClient
+    public void EnviaRestauranteParaItemService(RestauranteReadDto readDto);
+}
+
+public class ItemServiceHttpClient : IItemServiceHttpClient
+{
+    private readonly HttpClient _client;
+    private readonly IConfiguration _configuration;
+
+    public ItemServiceHttpClient(HttpClient client, IConfiguration configuration)
     {
-        public void EnviaRestauranteParaItemService(RestauranteReadDto readDto);
+        _client = client;
+        _configuration = configuration;
+    }
+
+    public async void EnviaRestauranteParaItemService(RestauranteReadDto readDto)
+    {
+        var conteudoHttp = new StringContent(
+            JsonSerializer.Serialize(readDto),
+            Encoding.UTF8,
+            "application/json"
+        );
+
+        await _client.PostAsync(_configuration["ItemService"], conteudoHttp);
     }
 }

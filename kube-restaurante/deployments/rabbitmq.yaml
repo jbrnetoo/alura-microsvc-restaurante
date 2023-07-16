@@ -11,12 +11,11 @@ spec:
       app: rabbitmq
   template:
     metadata:
-      labels: 
+      labels:
         app: rabbitmq
     spec:
       containers:
         - name: rabbitmq
-          image: 962752222089.dkr.ecr.us-east-1.amazonaws.com/rabbitmq:3-management
+          image: 550043459677.dkr.ecr.us-east-1.amazonaws.com/rabbitmq:3-management
           ports:
             - containerPort: 15672
-          

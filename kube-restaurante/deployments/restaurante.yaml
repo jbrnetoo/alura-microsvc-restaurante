@@ -11,17 +11,17 @@ spec:
       app: restaurante-api
   template:
     metadata:
-      labels: 
+      labels:
         app: restaurante-api
     spec:
       containers:
         - name: restaurante-api
-          image: 962752222089.dkr.ecr.us-east-1.amazonaws.com/restauranteservice:1.5
+          image: 550043459677.dkr.ecr.us-east-1.amazonaws.com/restauranteservice:1.5
           ports:
             - containerPort: 80
           env:
             - name: ConnectionStrings__RestauranteConnection
-              value: "server=alura-db.chpsm599tfcr.us-east-1.rds.amazonaws.com;database=restaurantedb;user=admin;password=Senhasecreta123"
+              value: "server=alura-db.cq8nnyklopj5.us-east-1.rds.amazonaws.com;database=restaurantedb;user=admin_alura;password=UiaUubJg7ytCBK1jAhwg"
             - name: RabbitMqHost
               value: "rabbitmq-service"
             - name: RabbitMqPort
