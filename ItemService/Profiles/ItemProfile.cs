@@ -13,6 +13,7 @@ namespace ItemService.Profiles
             .ReverseMap();
             CreateMap<ItemCreateDto, Item>();
             CreateMap<Item, ItemCreateDto>();
+            CreateMap<Item, ItemReadDto>();
         }
     }
 }
